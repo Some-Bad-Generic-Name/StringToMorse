@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-/*
-const char lookup[] = {
-	, , , , 
-};
-*/
 int main()
 {
 	char string[65536] = {0};
@@ -15,17 +10,18 @@ int main()
 
 	fgets(string, sizeof(string), stdin);
 
-	for (int i = 0; i < sizeof(string); i++)
+	for (int i = 0; i < sizeof(string); i++) // converts every letter to lowercase
 	{
-		if(string[i] == '\0') break;
+		if (string[i] == '\0') // stops at null
+			break;
 		string[i] = tolower(string[i]);
 	}
 
-	for (int i = 0; i < sizeof(string); i++)
+	for (int i = 0; i < sizeof(string); i++) // runs through each character and outputs the morse code version
 	{
-		if(string[i] == '\0') break;
+		if (string[i] == '\0') // stops at null
+			break;
 		toMorse(string[i]);
-		// result[] = toMorse(string[i]);
 	}
 	printf("\n");
 
@@ -116,7 +112,7 @@ void toMorse(char letter)
 	case 'z':
 		printf("/--..");
 		return 0;
-	
+
 	default:
 		break;
 	}
